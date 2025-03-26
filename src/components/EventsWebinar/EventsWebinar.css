@@ -1,0 +1,268 @@
+.webinar-container {
+    padding-top: 100px;
+    overflow-x: hidden;
+    background: #fff;
+}
+
+/* Hero Section */
+.webinar-hero {
+    background: linear-gradient(135deg, #ffefc1, #ffcc80);
+    padding: 60px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text h1 {
+    color: #a8002d;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+}
+
+.registration-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.registration-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form h3 {
+    color: #ff4081;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.captcha-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.registration-form button {
+    width: 100%;
+    padding: 12px;
+    background: #a8002d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registration-form button:hover {
+    background: #ff4081;
+}
+
+.speaker-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.speaker-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.speaker-info h4 {
+    color: #ff4081;
+    margin-bottom: 5px;
+}
+
+.event-details {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Banner Section */
+.info-banner {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.info-banner h2 {
+    color: #ff4081;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.info-banner h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.info-banner p {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.cta-button {
+    background: #a8002d;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background: #ff4081;
+}
+
+/* Takeaways Section */
+.takeaways-section {
+    padding: 60px 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.takeaways-image {
+    flex: 1;
+}
+
+.takeaways-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.takeaways-content {
+    flex: 1;
+}
+
+.takeaways-content h2 {
+    color: #ff4081;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.takeaways-content p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.benefits-list li {
+    margin: 15px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.benefits-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #ff4081;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .webinar-hero {
+        flex-direction: column;
+    }
+
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .takeaways-section {
+        flex-direction: column;
+    }
+
+    .speaker-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.8em;
+    }
+
+    .info-banner h2 {
+        font-size: 2em;
+    }
+
+    .info-banner h3 {
+        font-size: 1.3em;
+    }
+}

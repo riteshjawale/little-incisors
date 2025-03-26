@@ -1,0 +1,259 @@
+/* Daycare Container */
+.daycare-container {
+    padding-top: 100px;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.daycare-hero {
+    background: linear-gradient(135deg, #ffefc1, #ffcc80);
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.daycare-hero h1 {
+    color: #a8002d;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    animation: fadeInDown 1s ease;
+}
+
+.care-types {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.care-type {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: bounceIn 1s ease;
+}
+
+.care-type:hover {
+    transform: translateY(-10px);
+}
+
+.care-icon {
+    font-size: 2.5em;
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+.hero-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Empowering Section */
+.empowering-section {
+    display: flex;
+    align-items: center;
+    padding: 60px 20px;
+    gap: 40px;
+    background: white;
+    margin: 40px 0;
+}
+
+.empowering-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.empowering-content h2 {
+    color: #ff4081;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.empowering-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.empowering-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.empowering-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Services Grid */
+.services-section {
+    padding: 60px 20px;
+    background: #f9f9f9;
+}
+
+.services-section h2 {
+    text-align: center;
+    color: #ff4081;
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card h3 {
+    color: #ff4081;
+    margin-bottom: 15px;
+}
+
+/* Nanny Section */
+.nanny-section {
+    display: flex;
+    align-items: center;
+    padding: 60px 20px;
+    gap: 40px;
+    background: white;
+}
+
+.nanny-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nanny-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.nanny-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.nanny-content h2 {
+    color: #ff4081;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Enquiry Section */
+.enquiry-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ffefc1, #ffcc80);
+    border-radius: 50px 50px 0 0;
+}
+
+.enquiry-button {
+    background: #a8002d;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.enquiry-button:hover {
+    transform: scale(1.05);
+    background: #ff4081;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.89);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .daycare-hero h1 {
+        font-size: 2em;
+    }
+
+    .empowering-section,
+    .nanny-section {
+        flex-direction: column;
+    }
+
+    .care-types {
+        gap: 20px;
+    }
+
+    .care-type {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .empowering-image img,
+    .nanny-image img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .daycare-hero h1 {
+        font-size: 1.5em;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
