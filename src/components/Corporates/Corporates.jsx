@@ -1,208 +1,226 @@
 import React, { useState, useEffect } from 'react';
-import { FaBuilding, FaShieldAlt, FaGraduationCap, FaHandshake, FaGlobe, FaBalanceScale, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { motion } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './Corporates.css';
 
-import returnToWorkImg from '../../assets/Playing.jpg';
-import happyEmployeesImg from '../../assets/Teaching.jpg';
-import womenLeadersImg from '../../assets/women1.jpg';
-import testimonialImg1 from '../../assets/women2.jpg';
-import testimonialImg2 from '../../assets/women1.jpg';
-import testimonialImg3 from '../../assets/women3.jpg';
+// Import images
+import backgroundImage from '../../assets/Playing.jpg';
+import img1 from '../../assets/women2.jpg';
+import img2 from '../../assets/women2.jpg';
+import img3 from '../../assets/women2.jpg';
 
-const Corporates = () => {
-    const [activeTab, setActiveTab] = useState('near-site');
-    const [currentTestimonial, setCurrentTestimonial] = useState(0);
+const CorporatePage = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
 
-    const benefits = [
-        {
-            image: returnToWorkImg,
-            title: 'Return to Work',
-            description: 'Little Incisors is focused on equipping working parents in India with quality daycare to allow them to return to their workplaces with them being given world-class care and home-like feel with our services.'
-        },
-        {
-            image: happyEmployeesImg,
-            title: 'Happy Employees',
-            description: 'When employees are confident that their children are in good hands, they can focus more on their work and be more productive. We boost the morale of your workforce by letting them know that the company values them as individuals.'
-        },
-        {
-            image: womenLeadersImg,
-            title: 'Women as Leaders',
-            description: 'Women often leave their jobs to take care of their children, particularly during early childhood. By providing a second home for their children, we open up opportunities for career advancement and leadership roles.'
-        }
-    ];
+  const [selectedSolution, setSelectedSolution] = useState('Onsite');
 
-    const partnerBenefits = [
-        { icon: <FaBuilding />, title: 'Infrastructure', description: 'High-quality childcare facilities with world-class amenities' },
-        { icon: <FaShieldAlt />, title: 'Health & Safety', description: 'Strict safety protocols to ensure a secure environment' },
-        { icon: <FaGraduationCap />, title: 'Foundational Development', description: 'Unique pedagogy aligned with National Education Policy' },
-        { icon: <FaHandshake />, title: 'Trusted by Corporates', description: 'Over 450 corporates trust our childcare services' },
-        { icon: <FaGlobe />, title: 'Pan-India Presence', description: 'Centers available in major cities for convenience' },
-        { icon: <FaBalanceScale />, title: 'Work-Life Balance', description: 'Childcare solutions that help employees focus on work' }
-    ];
+  const solutions = {
+    'Onsite': {
+      text: 'Onsite childcare solutions provide facilities at the workplace, ensuring employees have their children nearby for convenience and peace of mind.',
+      bgClass: 'blue-bg',
+      descClass: 'white'
+    },
+    'Near-Site': {
+      text: 'Near-site childcare centers are located close to the workplace, offering flexibility for working parents while ensuring high-quality care.',
+      bgClass: 'green-bg',
+      descClass: 'white'
+    },
+    'Subsidized': {
+      text: 'Subsidized childcare solutions help companies support employees by covering part of the childcare costs, making quality care more accessible.',
+      bgClass: 'yellow-bg',
+      descClass: 'yellow'
+    },
+    'Nanny at Home': {
+      text: "Nanny at home services provide professional childcare assistance directly at home, ensuring personalized care tailored to each child's needs.",
+      bgClass: 'red-bg',
+      descClass: 'white'
+    }
+  };
 
-    const testimonials = [
-        {
-            text: "The best thing about Little Incisors is that they focus on holistic development which is essential for a child's overall growth.",
-            author: "Rohan Chowdhry",
-            location: "Little Incisors Powai, Mumbai",
-            rating: 5,
-            image: testimonialImg1
-        },
-        {
-            text: "As a working mother, Little Incisors has been a blessing. Their professional approach and caring environment give me peace of mind while at work.",
-            author: "Priya Sharma",
-            location: "Little Incisors Koramangala, Bangalore",
-            rating: 5,
-            image: testimonialImg2
-        },
-        {
-            text: "The staff at Little Incisors is exceptional. They've created such a nurturing environment that my child looks forward to going there every day.",
-            author: "Anjali Mehta",
-            location: "Little Incisors Bandra, Mumbai",
-            rating: 5,
-            image: testimonialImg3
-        }
-    ];
+  const features = [
+    {
+      icon: "🏠",
+      title: "Infrastructure",
+      description: "We create for your children a 'home away from home', a place where they feel loved and happy.",
+      gradient: "linear-gradient(135deg, #FFDEE9, #B5FFFC)",
+    },
+    {
+      icon: "🔒",
+      title: "Health & Safety",
+      description: "We follow the highest standards of hygiene, security, and nutrition to ensure well-being.",
+      gradient: "linear-gradient(135deg, #D4FC79, #96E6A1)",
+    },
+    {
+      icon: "📜",
+      title: "Foundational Development",
+      description: "Our pedagogy aligns with the National Education Policy to encourage children's exploration.",
+      gradient: "linear-gradient(135deg, #A1C4FD, #C2E9FB)",
+    },
+    {
+      icon: "🤝",
+      title: "Trusted by Corporates",
+      description: "Over 450 corporates trust us for world-class childcare facilities and professional nanny services.",
+      gradient: "linear-gradient(135deg, #FDCB82, #F8A170)",
+    },
+    {
+      icon: "🌎",
+      title: "Pan-India Presence",
+      description: "With centers in Gurgaon, Noida, Mumbai, Bangalore, Hyderabad, and Chennai, we are everywhere.",
+      gradient: "linear-gradient(135deg, #F6D365, #FDA085)",
+    },
+  ];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-        }, 4000);
-
-        return () => clearInterval(interval);
-    }, [testimonials.length]);
-
-    const nextTestimonial = () => {
-        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    };
-
-    const prevTestimonial = () => {
-        setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    };
-
-    return (
-        <div className="corporates-page">
-            {/* Hero Section */}
-            <div className="hero-section">
-                <h1>Thriving at Work and <span>Play is Just a Little Incisors Away!</span></h1>
-                <p>At Little Incisors, we make the journey between work and home a little easier and a lot brighter. With safe, nurturing spaces and programs designed to help little ones blossom, we give parents the peace of mind to thrive at work while their children grow, learn, and laugh in a home away from home.</p>
-            </div>
-
-            {/* Benefits Section */}
-            <section className="benefits-section">
-                <h2>Why Employer <span>Sponsored Childcare</span></h2>
-                <div className="benefits-grid">
-                    {benefits.map((benefit, index) => (
-                        <div key={index} className="benefit-card">
-                            <LazyLoadImage
-                                src={benefit.image}
-                                alt={benefit.title}
-                                effect="blur"
-                                className="benefit-image"
-                            />
-                            <h3>{benefit.title}</h3>
-                            <p>{benefit.description}</p>
-                        </div>
-                    ))}
-                </div>
-                <div className="cta-container">
-                    <p>To Know More About our Corporate Tie Ups</p>
-                    <button className="cta-button">Partner with Us</button>
-                </div>
-            </section>
-
-            {/* Partner Benefits Section */}
-            <section className="partner-benefits">
-                <h2>Why Choose <span>Little Incisors As Your Partner</span></h2>
-                <div className="partner-grid">
-                    {partnerBenefits.map((benefit, index) => (
-                        <div key={index} className="partner-card">
-                            <div className="icon-container">{benefit.icon}</div>
-                            <h3>{benefit.title}</h3>
-                            <p>{benefit.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Solutions Section */}
-            <section className="solutions-section">
-                <h2>Our <span>Solutions</span></h2>
-                <div className="solutions-tabs">
-                    <button 
-                        className={activeTab === 'onsite' ? 'active' : ''}
-                        onClick={() => setActiveTab('onsite')}
-                    >
-                        Onsite
-                    </button>
-                    <button 
-                        className={activeTab === 'near-site' ? 'active' : ''}
-                        onClick={() => setActiveTab('near-site')}
-                    >
-                        Near-Site
-                    </button>
-                    <button 
-                        className={activeTab === 'subsidised' ? 'active' : ''}
-                        onClick={() => setActiveTab('subsidised')}
-                    >
-                        Subsidised
-                    </button>
-                    <button 
-                        className={activeTab === 'nanny' ? 'active' : ''}
-                        onClick={() => setActiveTab('nanny')}
-                    >
-                        Nanny at Home
-                    </button>
-                </div>
-                <div className="solution-content">
-                    <p>Shared world-class childcare centres are gaining popularity in tech parks and office spaces. These facilities feature top-notch amenities, ensuring children receive excellent care. The proximity of childcare fosters a more productive and family-friendly work atmosphere.</p>
-                </div>
-            </section>
-
-            {/* Testimonials Section */}
-            <section className="testimonials-section">
-                <div className="testimonial-slider">
-                    <button className="slider-button prev" onClick={prevTestimonial}>
-                        <FaChevronLeft />
-                    </button>
-                    <div className="testimonial-container">
-                        <div className="testimonial-image">
-                            <LazyLoadImage
-                                src={testimonials[currentTestimonial].image}
-                                alt="Happy Parent and Child"
-                                effect="blur"
-                            />
-                        </div>
-                        <div className="testimonial-content">
-                            <h2>Happy Parents <span>Speak</span></h2>
-                            <p>{testimonials[currentTestimonial].text}</p>
-                            <div className="rating">
-                                {'★'.repeat(testimonials[currentTestimonial].rating)}
-                            </div>
-                            <div className="author">
-                                <p>{testimonials[currentTestimonial].author}</p>
-                                <p>{testimonials[currentTestimonial].location}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button className="slider-button next" onClick={nextTestimonial}>
-                        <FaChevronRight />
-                    </button>
-                    <div className="slider-dots">
-                        {testimonials.map((_, index) => (
-                            <button
-                                key={index}
-                                className={`dot ${index === currentTestimonial ? 'active' : ''}`}
-                                onClick={() => setCurrentTestimonial(index)}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </section>
+  return (
+    <div className="corporate-page">
+      {/* Hero Section */}
+      <section className="corporate-hero">
+        <img src={backgroundImage} alt="Background" className="hero-background" />
+        
+        <div className="hero-contact-form">
+          <h2 className="hero-form-title">Corporate Relations Team</h2>
+          <p className="hero-form-subtitle">To Get In Touch With You</p>
+          <input type="text" placeholder="Name *" required className="hero-form-input" />
+          <input type="text" placeholder="+91 Phone Number *" required className="hero-form-input" />
+          <input type="email" placeholder="Email ID *" required className="hero-form-input" />
+          <select required className="hero-form-select">
+            <option value="">Select I am *</option>
+            <option value="Parent">Parent</option>
+            <option value="Corporate">Corporate</option>
+          </select>
+          <input type="text" placeholder="Company *" required className="hero-form-input" />
+          <button type="submit" className="hero-form-button">Connect Now</button>
         </div>
-    );
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="why-choose-section">
+        <motion.h2 
+          className="why-choose-heading"
+          initial={{ opacity: 0, y: -50 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8 }}
+        >
+          Why Choose <span>Little Incisors</span>
+        </motion.h2>
+
+        <div className="features-grid">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="feature-card"
+              style={{ background: feature.gradient }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              data-aos="fade-up"
+            >
+              <span className="feature-icon">{feature.icon}</span>
+              <h3 className="feature-title">{feature.title}</h3>
+              <p className="feature-description">{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why Employer Section */}
+      <section className="why-employer-section">
+        <h2 className="why-employer-heading">
+          Why Employer <span>Sponsored Childcare</span>
+        </h2>
+        <div className="employer-cards">
+          <div className="employer-card">
+            <img src={img1} alt="Return to Work" className="employer-card-image" />
+            <div className="employer-card-content">
+              <h3 className="employer-card-title">Return to Work</h3>
+              <p className="employer-card-text">
+                We are focused on equipping working parents in India with quality daycare 
+                to allow them to return to their workplaces.
+              </p>
+            </div>
+          </div>
+
+          <div className="employer-card">
+            <img src={img2} alt="Happy Employees" className="employer-card-image" />
+            <div className="employer-card-content">
+              <h3 className="employer-card-title">Happy Employees</h3>
+              <p className="employer-card-text">
+                When employees are confident that their children are in good hands, 
+                they can focus more on their work and be more productive.
+              </p>
+            </div>
+          </div>
+
+          <div className="employer-card">
+            <img src={img3} alt="Women as Leaders" className="employer-card-image" />
+            <div className="employer-card-content">
+              <h3 className="employer-card-title">Women as Leaders</h3>
+              <p className="employer-card-text">
+                Women often leave their jobs to take care of their children. 
+                Be the leader in your industry by providing a second home for their children.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
+      <section className={`solutions-section ${solutions[selectedSolution].bgClass}`}>
+        <div className="solutions-container">
+          <h2 className="solutions-heading" data-aos="fade-up">
+            Our Solutions
+          </h2>
+
+          <div className="solutions-options">
+            {Object.keys(solutions).map((solution, index) => (
+              <div
+                key={index}
+                className={`solution-option ${selectedSolution === solution ? 'selected-solution' : ''}`}
+                data-aos="fade-up"
+                onClick={() => setSelectedSolution(solution)}
+              >
+                <h3 className="solution-name">{solution}</h3>
+              </div>
+            ))}
+          </div>
+
+          <motion.div
+            key={selectedSolution}
+            className={`solution-detail ${solutions[selectedSolution].descClass}`}
+            data-aos="zoom-in"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="solution-detail-title">{selectedSolution}</h3>
+            <p className="solution-detail-text">{solutions[selectedSolution].text}</p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="corporate-cta">
+        <div className="cta-container">
+          <h2 className="cta-heading" data-aos="fade-up">
+            Ready to Transform Your Workplace?
+          </h2>
+          <p className="cta-text" data-aos="fade-up" data-aos-delay="100">
+            Partner with us to create a family-friendly workplace that attracts and retains top talent.
+          </p>
+          <motion.button
+            className="cta-button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Request a Proposal
+          </motion.button>
+        </div>
+      </section>
+    </div>
+  );
 };
 
-export default Corporates;
+export default CorporatePage;
