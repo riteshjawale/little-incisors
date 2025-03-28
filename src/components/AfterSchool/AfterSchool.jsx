@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './AfterSchool.css';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { 
     FaBabyCarriage, FaChild, FaFirstAid, FaBook, 
-    FaPalette, FaMusic, FaRunning, FaChess 
+    FaPalette, FaMusic, FaRunning, FaChess,
+    FaChalkboardTeacher, FaUsers, FaHome
 } from 'react-icons/fa';
 import activityImg1 from '../../assets/Playing.jpg';
 import activityImg2 from '../../assets/Teaching.jpg';
@@ -12,29 +11,18 @@ import activityImg3 from '../../assets/infastr.jpg';
 import activityImg4 from '../../assets/infaf2.jpg';
 
 const AfterSchool = () => {
-    const [activeTab, setActiveTab] = useState('young');
     const [activeAccordion, setActiveAccordion] = useState(0);
-
-    const schedule = {
-        young: [
-            { time: '1:00 PM', activity: 'Arrival & Lunch', icon: <FaChild />, color: '#FF6B6B' },
-            { time: '2:00 PM', activity: 'Nap Time', icon: <FaBabyCarriage />, color: '#4ECDC4' },
-            { time: '3:00 PM', activity: 'Creative Arts', icon: <FaPalette />, color: '#FFD93D' },
-            { time: '4:00 PM', activity: 'Music & Movement', icon: <FaMusic />, color: '#6C5CE7' },
-            { time: '5:00 PM', activity: 'Story Time', icon: <FaBook />, color: '#FF8B94' },
-            { time: '6:00 PM', activity: 'Free Play', icon: <FaRunning />, color: '#A8E6CF' }
-        ],
-        older: [
-            { time: '2:00 PM', activity: 'Homework Support', icon: <FaBook />, color: '#FF6B6B' },
-            { time: '3:30 PM', activity: 'Sports & Games', icon: <FaRunning />, color: '#4ECDC4' },
-            { time: '4:30 PM', activity: 'Chess/Strategy', icon: <FaChess />, color: '#FFD93D' },
-            { time: '5:30 PM', activity: 'Creative Time', icon: <FaPalette />, color: '#6C5CE7' }
-        ]
-    };
-
+    
     const toggleAccordion = (index) => {
         setActiveAccordion(activeAccordion === index ? -1 : index);
     };
+
+    const features = [
+        { icon: <FaBook className="feature-icon" />, title: "Homework Support", description: "Dedicated time and expert assistance for homework completion" },
+        { icon: <FaPalette className="feature-icon" />, title: "Screen-Free Activities", description: "Engaging activities that don't rely on screens" },
+        { icon: <FaHome className="feature-icon" />, title: "Large Activity Zones", description: "Spacious, supervised areas for various activities" },
+        { icon: <FaChalkboardTeacher className="feature-icon" />, title: "Trained Facilitators", description: "Experienced and caring staff members" },
+    ];
 
     const faqs = [
         {
@@ -59,136 +47,111 @@ const AfterSchool = () => {
         <div className="afterschool-container">
             {/* Hero Section */}
             <div className="afterschool-hero">
-                <h1>Screen Free Afterschool Engagement and Care</h1>
-                <div className="care-types">
-                    <div className="care-type">
-                        <div className="icon-gradient">
-                            <FaBabyCarriage className="care-icon" />
+                <div className="hero-content">
+                    <h1>Screen Free <span>Afterschool</span> Engagement and Care</h1>
+                    <p className="hero-subtitle">WHERE LEARNING CONTINUES AFTER SCHOOL</p>
+                    
+                    <div className="care-types">
+                        <div className="care-type">
+                            <div className="care-icon-container">
+                                <FaBabyCarriage className="care-icon" />
+                            </div>
+                            <h3>Full Daycare</h3>
+                            <p>6 months - 5 years</p>
                         </div>
-                        <h3>Full Daycare</h3>
+                        <div className="care-type featured">
+                            <div className="care-icon-container">
+                                <FaChild className="care-icon" />
+                            </div>
+                            <h3>After School Care</h3>
+                            <p>3 years - 10 years</p>
+                            <div className="featured-badge">Popular</div>
+                        </div>
+                        <div className="care-type">
+                            <div className="care-icon-container">
+                                <FaFirstAid className="care-icon" />
+                            </div>
+                            <h3>Emergency Daycare</h3>
+                            <p>Flexible hours</p>
+                        </div>
                     </div>
-                    <div className="care-type">
-                        <div className="icon-gradient">
-                            <FaChild className="care-icon" />
+                    
+                    <div className="hero-stats">
+                        <div className="stat-item">
+                            <span className="stat-number">98%</span>
+                            <span className="stat-label">Parent Satisfaction</span>
                         </div>
-                        <h3>After School Care</h3>
-                    </div>
-                    <div className="care-type">
-                        <div className="icon-gradient">
-                            <FaFirstAid className="care-icon" />
+                        <div className="stat-item">
+                            <span className="stat-number">5:1</span>
+                            <span className="stat-label">Child-Teacher Ratio</span>
                         </div>
-                        <h3>Emergency Daycare</h3>
                     </div>
                 </div>
-                <p className="hero-text">
-                    Our comprehensive daycare program caters to children aged 6 months to 10 years, 
-                    featuring a well-equipped library, indoor and outdoor play areas, temperature-controlled 
-                    rooms, and a balanced meal plan designed by nutrition experts.
-                </p>
             </div>
 
-            {/* Schedule Section */}
-            <div className="schedule-section">
-                <h2>Daily Schedule</h2>
-                <div className="schedule-tabs">
-                    <button 
-                        className={`tab-button ${activeTab === 'young' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('young')}
-                    >
-                        Ages 3-4 Years
-                    </button>
-                    <button 
-                        className={`tab-button ${activeTab === 'older' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('older')}
-                    >
-                        Ages 4-10 Years
-                    </button>
+            {/* Why Choose Us Section */}
+            <div className="why-choose-us">
+                <div className="section-title">
+                    <h2>Why Choose <span>Little Incisors</span>' After School Program?</h2>
+                    <p>Comprehensive support for your child's development</p>
                 </div>
-
-                <div className="timeline-container">
-                    {schedule[activeTab].map((item, index) => (
-                        <div 
-                            key={index} 
-                            className="timeline-item"
-                            style={{'--accent-color': item.color}}
-                        >
-                            <div className="timeline-icon">
-                                {item.icon}
+                <div className="features-grid">
+                    {features.map((feature, index) => (
+                        <div key={index} className="feature-card">
+                            <div className="feature-icon-container">
+                                {feature.icon}
                             </div>
-                            <div className="timeline-content">
-                                <h3>{item.time}</h3>
-                                <p>{item.activity}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Mobile Accordion */}
-                <div className="schedule-accordion">
-                    {schedule[activeTab].map((item, index) => (
-                        <div 
-                            key={index}
-                            className="accordion-item"
-                            style={{'--accent-color': item.color}}
-                            onClick={() => toggleAccordion(index)}
-                        >
-                            <div className="accordion-header">
-                                <div className="accordion-icon">{item.icon}</div>
-                                <h3>{item.time}</h3>
-                                <span className="accordion-toggle">
-                                    {activeAccordion === index ? '−' : '+'}
-                                </span>
-                            </div>
-                            <div className={`accordion-content ${activeAccordion === index ? 'active' : ''}`}>
-                                <p>{item.activity}</p>
-                            </div>
+                            <h3>{feature.title}</h3>
+                            <p>{feature.description}</p>
                         </div>
                     ))}
                 </div>
             </div>
 
-            {/* Activities Grid */}
+            {/* Activities Section */}
             <div className="activities-section">
-                <h2>Enrichment Activities</h2>
+                <div className="section-title">
+                    <h2>Enrichment <span>Activities</span></h2>
+                    <p>Engaging programs for holistic development</p>
+                </div>
                 <div className="activities-grid">
-                    <LazyLoadImage
-                        src={activityImg1}
-                        alt="Fitness Activities"
-                        effect="blur"
-                        className="activity-image"
-                    />
-                    <LazyLoadImage
-                        src={activityImg2}
-                        alt="Arts Activities"
-                        effect="blur"
-                        className="activity-image"
-                    />
-                    <LazyLoadImage
-                        src={activityImg3}
-                        alt="Creative Activities"
-                        effect="blur"
-                        className="activity-image"
-                    />
-                    <LazyLoadImage
-                        src={activityImg4}
-                        alt="Science Activities"
-                        effect="blur"
-                        className="activity-image"
-                    />
+                    <div className="activity-card">
+                        <img src={activityImg1} alt="Outdoor Play" className="activity-image" />
+                        <div className="activity-content">
+                            <h3>Outdoor Play & Fitness</h3>
+                            <p>Structured physical activities for healthy development</p>
+                        </div>
+                    </div>
+                    <div className="activity-card">
+                        <img src={activityImg2} alt="Arts & Crafts" className="activity-image" />
+                        <div className="activity-content">
+                            <h3>Arts & Crafts</h3>
+                            <p>Creative expression through various mediums</p>
+                        </div>
+                    </div>
+                    <div className="activity-card">
+                        <img src={activityImg3} alt="STEM Learning" className="activity-image" />
+                        <div className="activity-content">
+                            <h3>STEM Learning</h3>
+                            <p>Hands-on science and technology activities</p>
+                        </div>
+                    </div>
+                    <div className="activity-card">
+                        <img src={activityImg4} alt="Music & Dance" className="activity-image" />
+                        <div className="activity-content">
+                            <h3>Music & Dance</h3>
+                            <p>Rhythmic movement and musical exploration</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {/* Partners Section */}
-            <div className="partners-section">
-                <h2>Our Activity Partners</h2>
-                <div className="partner-logos">
-                    {/* Add partner logos here */}
-                </div>
-            </div>
-
-            {/* FAQs Section */}
+            {/* FAQ Section */}
             <div className="faq-section">
-                <h2>Frequently Asked Questions</h2>
+                <div className="section-title">
+                    <h2>Frequently Asked <span>Questions</span></h2>
+                    <p>Everything you need to know about our program</p>
+                </div>
                 <div className="faq-container">
                     {faqs.map((faq, index) => (
                         <div 
@@ -206,6 +169,13 @@ const AfterSchool = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+
+            {/* Enquiry Section */}
+            <div className="enquiry-section">
+                <h2>Ready to <span>Enroll</span> Your Child?</h2>
+                <p>Fill up the enquiry form to know more about our program</p>
+                <button className="cta-button">Enquire Now</button>
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { FaBrain, FaUsers, FaStar, FaHeart, FaChild } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaBrain, FaUsers, FaStar, FaHeart,FaQuoteLeft, FaChild, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './FoundationalDevelopment.css';
@@ -8,13 +8,6 @@ import circleTimeImg from '../../assets/Playing.jpg';
 import artActivitiesImg from '../../assets/Teaching.jpg';
 import storyTimeImg from '../../assets/infastr.jpg';
 import musicMovementImg from '../../assets/dance.jpg';
-import roleDramaImg from '../../assets/Playing.jpg';
-import groupTimeImg from '../../assets/Teaching.jpg';
-import mealTimeImg from '../../assets/foodn.jpg';
-import napTimeImg from '../../assets/infastr.jpg';
-import freePlayImg from '../../assets/Playing.jpg';
-import outdoorPlayImg from '../../assets/infaf2.jpg';
-import cookingImg from '../../assets/foodn.jpg';
 import teacherImg from '../../assets/Teaching.jpg';
 import parentChildImg from '../../assets/Playing.jpg';
 
@@ -43,23 +36,14 @@ const FoundationalDevelopment = () => {
         { title: 'Circle Time', image: circleTimeImg },
         { title: 'Art Activities', image: artActivitiesImg },
         { title: 'Story Time', image: storyTimeImg },
-        { title: 'Music & Movement', image: musicMovementImg },
-        { title: 'Role Play & Drama', image: roleDramaImg },
-        { title: 'Group Time', image: groupTimeImg },
-        { title: 'Meal Time', image: mealTimeImg },
-        { title: 'Nap Time', image: napTimeImg },
-        { title: 'Free Play', image: freePlayImg },
-        { title: 'Outdoor Play', image: outdoorPlayImg },
-        { title: 'Fireless Cooking', image: cookingImg }
+        { title: 'Music & Movement', image: musicMovementImg }
     ];
 
     const agePrograms = [
         { title: 'Infant', age: '6 Months - 15 Months', image: circleTimeImg },
         { title: 'Junior Toddler', age: '15 Months - 2 Years', image: artActivitiesImg },
         { title: 'Senior Toddler', age: '2 Years - 3 Years', image: storyTimeImg },
-        { title: 'Pre-K', age: '3 Years - 4 Years', image: musicMovementImg },
-        { title: 'K1', age: '4 Years - 5 Years', image: roleDramaImg },
-        { title: 'K2', age: '5 Years - 6 Years', image: groupTimeImg }
+        { title: 'Pre-K', age: '3 Years - 4 Years', image: musicMovementImg }
     ];
 
     const faqs = [
@@ -70,8 +54,7 @@ const FoundationalDevelopment = () => {
         {
             question: 'What age groups does the program cater to?',
             answer: 'The program caters to children from 6 months to 6 years, with age-appropriate activities and curriculum for each stage of development.'
-        },
-        // Add more FAQs as needed
+        }
     ];
 
     const toggleAccordion = (index) => {
@@ -79,37 +62,50 @@ const FoundationalDevelopment = () => {
     };
 
     return (
-        <div className="foundational-development">
-            {/* Main Banner */}
-            <div className="main-banner">
-                <h1>Preparing them for the Future</h1>
-                <div className="core-values">
-                    {coreValues.map((value, index) => (
-                        <div key={index} className="value-item">
-                            {value.icon}
-                            <span>{value.label}</span>
+        <div className="fd-container">
+            {/* Hero Section */}
+            <div className="fd-hero">
+                <div className="hero-content">
+                    <h1>Preparing Them for <span>the Future</span></h1>
+                    <p className="hero-subtitle">BUILDING STRONG FOUNDATIONS FOR LIFELONG LEARNING</p>
+                    
+                    <div className="core-values">
+                        {coreValues.map((value, index) => (
+                            <div key={index} className="value-card">
+                                <div className="value-icon">
+                                    {value.icon}
+                                </div>
+                                <h3>{value.label}</h3>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Program Overview */}
+            <div className="fd-section">
+                <div className="section-title">
+                    <h2>Foundational <span>Development</span> Program</h2>
+                    <p>Supporting early childhood development through structured learning and play</p>
+                </div>
+                <div className="features-grid">
+                    {keyFeatures.map((feature, index) => (
+                        <div key={index} className="feature-card">
+                            <div className="feature-icon">
+                                {feature.icon}
+                            </div>
+                            <h3>{feature.text}</h3>
                         </div>
                     ))}
                 </div>
             </div>
 
-            {/* Program Overview */}
-            <section className="program-overview">
-                <h2>Foundational Development Program</h2>
-                <p>Supporting early childhood development through structured learning and play.</p>
-                <div className="key-features">
-                    {keyFeatures.map((feature, index) => (
-                        <div key={index} className="feature-item">
-                            {feature.icon}
-                            <span>{feature.text}</span>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
             {/* Learning Architecture */}
-            <section className="learning-architecture">
-                <h2>Learning Architecture</h2>
+            <div className="fd-section light-bg">
+                <div className="section-title">
+                    <h2>Learning <span>Architecture</span></h2>
+                    <p>Tailored programs for different age groups</p>
+                </div>
                 <div className="age-group-selector">
                     <button
                         className={selectedAgeGroup === 'young' ? 'active' : ''}
@@ -124,14 +120,32 @@ const FoundationalDevelopment = () => {
                         4 Years to 16 Years
                     </button>
                 </div>
-                <div className="development-aspects">
-                    {/* Add development aspects grid */}
+                <div className="development-grid">
+                    <div className="development-card">
+                        <h3>Cognitive Development</h3>
+                        <p>Activities to enhance thinking and problem-solving skills</p>
+                    </div>
+                    <div className="development-card">
+                        <h3>Social-Emotional Growth</h3>
+                        <p>Building relationships and emotional intelligence</p>
+                    </div>
+                    <div className="development-card">
+                        <h3>Physical Development</h3>
+                        <p>Gross and fine motor skills activities</p>
+                    </div>
+                    <div className="development-card">
+                        <h3>Language Skills</h3>
+                        <p>Communication and literacy development</p>
+                    </div>
                 </div>
-            </section>
+            </div>
 
             {/* Activities */}
-            <section className="activities">
-                <h2>Developmental Activities</h2>
+            <div className="fd-section">
+                <div className="section-title">
+                    <h2>Developmental <span>Activities</span></h2>
+                    <p>Engaging experiences for holistic growth</p>
+                </div>
                 <div className="activities-grid">
                     {activities.map((activity, index) => (
                         <div key={index} className="activity-card">
@@ -141,15 +155,20 @@ const FoundationalDevelopment = () => {
                                 effect="blur"
                                 className="activity-image"
                             />
-                            <h3>{activity.title}</h3>
+                            <div className="activity-content">
+                                <h3>{activity.title}</h3>
+                            </div>
                         </div>
                     ))}
                 </div>
-            </section>
+            </div>
 
             {/* Age Programs */}
-            <section className="age-programs">
-                <h2>Age-wise Programs</h2>
+            <div className="fd-section light-bg">
+                <div className="section-title">
+                    <h2>Age-wise <span>Programs</span></h2>
+                    <p>Specialized curriculum for each developmental stage</p>
+                </div>
                 <div className="programs-grid">
                     {agePrograms.map((program, index) => (
                         <div key={index} className="program-card">
@@ -159,89 +178,114 @@ const FoundationalDevelopment = () => {
                                 effect="blur"
                                 className="program-image"
                             />
-                            <h3>{program.title}</h3>
-                            <p>{program.age}</p>
+                            <div className="program-content">
+                                <h3>{program.title}</h3>
+                                <p>{program.age}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
-            </section>
+            </div>
 
             {/* Early Years Matter */}
-            <section className="early-years">
-                <h2>Early Years Matter</h2>
-                <div className="early-years-content">
-                    <div className="text-content">
-                        <p>Children come into this world ready to learn and develop. By the age of five, they have already formed 85 percent of their intelligence, personality, and abilities. The first few months and years of their lives lay the foundation for everything that follows. Their little brains make connections through everyday experiences with their mommies, daddies, and other caring adults. The amount of love, attention, and play they get in their early years’ decides which connections will last a lifetime. We’re here to give children the happy and loving experiences they need to get ready for school and life ahead.</p>
+            <div className="fd-section">
+                <div className="section-content">
+                    <div className="content-block">
+                        <h2>Early Years <span>Matter</span></h2>
+                        <p>
+                            Children come into this world ready to learn and develop. By the age of five, they have already formed 85 percent of their intelligence, personality, and abilities. The first few months and years of their lives lay the foundation for everything that follows. Their little brains make connections through everyday experiences with their mommies, daddies, and other caring adults. The amount of love, attention, and play they get in their early years decides which connections will last a lifetime. We're here to give children the happy and loving experiences they need to get ready for school and life ahead.
+                        </p>
                     </div>
-                    <LazyLoadImage
-                        src={teacherImg}
-                        alt="Child Learning"
-                        effect="blur"
-                        className="early-years-image"
-                    />
+                    <div className="section-image">
+                        <LazyLoadImage
+                            src={teacherImg}
+                            alt="Child Learning"
+                            effect="blur"
+                        />
+                    </div>
                 </div>
-            </section>
+            </div>
 
             {/* Daily Schedule */}
-            <section className="daily-schedule">
-                <h2>A Day at Little Incisors</h2>
-                <div className="schedule-content">
-                    <div className="schedule-list">
-                        <ul>
-                            <li>Arrival / Individual or Small Group Play</li>
-                            <li>Breakfast</li>
-                            <li>Routine Circle Time</li>
-                            <li>Development for Half Day Care children</li>
-                            <li>Lunch</li>
-                            <li>Nap Time</li>
-                            <li>Freshen Up / Snack Time</li>
-                            <li>Music & Movement</li>
-                            <li>Story Time</li>
-                            <li>Indoor / Outdoor Play</li>
-                            <li>Free Play / Departure</li>
-                        </ul>
-                        <p className="schedule-note">*Routine applies to children above 15 months and is customized for infants.</p>
-                    </div>
-                    <LazyLoadImage
-                        src={teacherImg}
-                        alt="Teacher with Children"
-                        effect="blur"
-                        className="schedule-image"
-                    />
+            <div className="fd-section light-bg">
+                <div className="section-title">
+                    <h2>A Day at <span>Little Incisors</span></h2>
+                    <p>Structured routine for optimal learning and growth</p>
                 </div>
-            </section>
+                <div className="schedule-container">
+                    <div className="schedule-list">
+                        <div className="schedule-item">
+                            <h3>Arrival / Individual or Small Group Play</h3>
+                        </div>
+                        <div className="schedule-item">
+                            <h3>Breakfast</h3>
+                        </div>
+                        <div className="schedule-item">
+                            <h3>Routine Circle Time</h3>
+                        </div>
+                        <div className="schedule-item">
+                            <h3>Development Activities</h3>
+                        </div>
+                        <div className="schedule-item">
+                            <h3>Lunch</h3>
+                        </div>
+                        <div className="schedule-item">
+                            <h3>Nap Time</h3>
+                        </div>
+                        <div className="schedule-note">
+                            *Routine applies to children above 15 months and is customized for infants.
+                        </div>
+                    </div>
+                    <div className="schedule-image">
+                        <LazyLoadImage
+                            src={teacherImg}
+                            alt="Teacher with Children"
+                            effect="blur"
+                        />
+                    </div>
+                </div>
+            </div>
 
             {/* Testimonial */}
-            <section className="testimonial">
-                <h2>I Choose Little Incisors Because...</h2>
-                <div className="testimonial-content">
-                    <div className="testimonial-text">
-                        <p>"The program has been transformative for my child's development..."</p>
-                        <div className="stars">★★★★★</div>
-                        <p className="author">- Sarah Johnson, Mumbai</p>
-                    </div>
-                    <LazyLoadImage
-                        src={parentChildImg}
-                        alt="Parent and Child"
-                        effect="blur"
-                        className="testimonial-image"
-                    />
+            <div className="fd-section testimonial-section">
+                <div className="section-title">
+                    <h2>I Choose <span>Little Incisors</span> Because...</h2>
                 </div>
-            </section>
+                <div className="testimonial-content">
+                    <div className="testimonial-card">
+                        <div className="quote-icon">
+                            <FaQuoteLeft />
+                        </div>
+                        <p className="testimonial-text">
+                            "The program has been transformative for my child's development. The personalized attention and expert care have helped them grow in ways we never imagined possible."
+                        </p>
+                        <div className="testimonial-author">
+                            <div className="author-image"></div>
+                            <div className="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Parent at Mumbai Center</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* FAQs */}
-            <section className="faqs">
-                <h2>FAQs</h2>
-                <div className="faq-list">
+            <div className="fd-section light-bg">
+                <div className="section-title">
+                    <h2>Frequently Asked <span>Questions</span></h2>
+                </div>
+                <div className="faq-container">
                     {faqs.map((faq, index) => (
-                        <div key={index} className="faq-item">
-                            <div
-                                className="faq-question"
-                                onClick={() => toggleAccordion(index)}
-                            >
+                        <div 
+                            key={index} 
+                            className={`faq-item ${activeAccordion === index ? 'active' : ''}`}
+                            onClick={() => toggleAccordion(index)}
+                        >
+                            <div className="faq-question">
                                 <h3>{faq.question}</h3>
                                 <span className="faq-icon">
-                                    {activeAccordion === index ? '-' : '+'}
+                                    {activeAccordion === index ? <FaChevronUp /> : <FaChevronDown />}
                                 </span>
                             </div>
                             <div className={`faq-answer ${activeAccordion === index ? 'show' : ''}`}>
@@ -250,7 +294,14 @@ const FoundationalDevelopment = () => {
                         </div>
                     ))}
                 </div>
-            </section>
+            </div>
+
+            {/* CTA Section */}
+            <div className="fd-cta">
+                <h2>Ready to <span>Begin</span> Your Child's Learning Journey?</h2>
+                <p>Contact us to learn more about our Foundational Development Program</p>
+                <button className="cta-button">Schedule a Visit</button>
+            </div>
         </div>
     );
 };
