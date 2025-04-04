@@ -44,7 +44,7 @@ span::after {
 
 /* Container */
 .lap-container {
-    padding-top: 100px;
+    /* padding-top: 100px; */
     overflow-x: hidden;
     background: var(--white);
 }

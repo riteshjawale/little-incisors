@@ -9,6 +9,25 @@ body {
     background-color: #f8f8f8;
 }
 
+
+
+.preschool-content .logo .logo-part1 {
+    color: rgba(245, 33, 104, 0.804); /* Choose your color for 'Little' */
+    font-size: 1.8rem;
+    
+}
+
+.preschool-content .logo .logo-part2 {
+    color: rgb(102, 169, 131); /* Choose your color for 'Incisors' */
+    font-style: italic;
+    
+    
+}
+.preschool-content .logo 
+{
+    margin-left: 35%;
+}
+
 .preschool-section {
     display: flex;
     flex-direction: column;

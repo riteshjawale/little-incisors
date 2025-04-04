@@ -1,5 +1,17 @@
+/* Navbar Wrapper - ensures proper spacing below navbar */
+.navbar-wrapper {
+    position: relative;
+    width: 100%;
+    height: var(--navbar-height);
+    z-index: 1000;
+}
+
+:root {
+    --navbar-height: 80px; /* Default height */
+}
+
 /* Navbar Base Styles */
-.navbar {
+.navbar-container {
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -14,23 +26,29 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     font-family: 'Fredoka', sans-serif;
     transition: all 0.3s ease;
+    height: var(--navbar-height);
 }
 
-/* Logo Styles */
-.logo {
+/* Navbar Logo Styles */
+.navbar-logo {
     display: flex;
     align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-.logo img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    transition: all 0.3s ease;
+.navbar-logo-part1 {
+    color: rgba(245, 33, 104, 0.804);
+    font-size: 1.8rem;
 }
 
-/* Navigation Links */
-.nav-links {
+.navbar-logo-part2 {
+    color: rgb(102, 169, 131);
+    font-style: italic;
+}
+
+/* Navbar Links */
+.navbar-links {
     list-style: none;
     display: flex;
     gap: 20px;
@@ -39,35 +57,36 @@
     padding: 0;
 }
 
-.nav-links li {
+.navbar-links li {
     position: relative;
 }
 
-.nav-links a {
+.navbar-links a {
     text-decoration: none;
     font-size: 15px;
     color: #1f1f1f9d;
     font-weight: 600;
     padding: 5px 5px;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.navbar-links a:hover {
     color: #FF6A00;
 }
 
-.nav-links a:active {
+.navbar-links a:active {
     border-bottom: 2px solid orangered;
 }
 
-/* Middle Bar Styles */
-.middle-bar {
+/* Navbar Middle Bar */
+.navbar-middle-bar {
     background-color: orange;
     width: 3px;
     height: 2rem;
 }
 
-/* Dropdown Menu */
-.dropdown-menu {
+/* Navbar Dropdown Menu */
+.navbar-dropdown-menu {
     display: none;
     position: absolute;
     background: rgba(224, 224, 224, 0.9);
@@ -77,18 +96,19 @@
     min-width: 150px;
     list-style: none;
     padding: 0;
+    z-index: 1001;
 }
 
-.dropdown-menu li {
+.navbar-dropdown-menu li {
     padding: 10px;
 }
 
-.dropdown:hover .dropdown-menu {
+.navbar-dropdown:hover .navbar-dropdown-menu {
     display: block;
 }
 
-/* CTA Button */
-.cta-button {
+/* Navbar CTA Button */
+.navbar-cta-button {
     background: #002F6C;
     color: white;
     border: none;
@@ -96,138 +116,130 @@
     font-weight: 600;
     border-radius: 25px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.cta-button:hover {
+.navbar-cta-button:hover {
     background: #001F4D;
 }
 
-/* Mobile Menu Toggle Button */
-.menu-toggle {
+/* Navbar Mobile Menu Toggle */
+.navbar-menu-toggle {
     display: none;
     font-size: 24px;
     cursor: pointer;
     z-index: 1001;
 }
 
-/* Mobile CTA */
-.mobile-cta {
+/* Navbar Mobile CTA */
+.navbar-mobile-cta {
     display: none;
 }
 
-/* Desktop CTA */
-.desktop-cta {
+/* Navbar Desktop CTA */
+.navbar-desktop-cta {
     display: block;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .navbar {
+    :root {
+        --navbar-height: 70px;
+    }
+    
+    .navbar-container {
         padding: 15px 20px;
     }
 
-    .logo img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .nav-links {
+    .navbar-links {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 70px;
+        position: fixed;
+        top: var(--navbar-height);
         left: 0;
         width: 100%;
         background: rgba(190, 190, 190, 0.95);
-        padding: 10px 0;
+        padding: 20px 0;
         text-align: center;
+        max-height: calc(100vh - var(--navbar-height));
+        overflow-y: auto;
     }
 
-    .nav-links.active {
+    .navbar-links.navbar-active {
         display: flex;
     }
 
-    .nav-links li {
-        margin: 10px 0;
+    .navbar-links li {
+        margin: 15px 0;
     }
 
-    .nav-links a {
+    .navbar-links a {
         font-size: 18px;
         color: #1f1f1f;
     }
 
-    .menu-toggle {
+    .navbar-menu-toggle {
         display: block;
     }
 
-    .dropdown-menu {
+    .navbar-dropdown-menu {
         position: static;
         display: none;
         background: none;
         box-shadow: none;
     }
 
-    .dropdown.active .dropdown-menu {
+    .navbar-dropdown.navbar-active .navbar-dropdown-menu {
         display: block;
     }
 
-    .middle-bar {
+    .navbar-middle-bar {
         display: none;
     }
 
-    /* Show mobile CTA, hide desktop CTA */
-    .mobile-cta {
+    .navbar-mobile-cta {
         display: block;
-        margin-top: 20px;
-    }
-
-    .desktop-cta {
-        display: none;
-    }
-
-    /* Style mobile CTA button */
-    .mobile-cta .cta-button {
+        margin: 20px auto;
         width: 80%;
-        margin: 0 auto;
+    }
+
+    .navbar-desktop-cta {
+        display: none;
     }
 }
 
-/* Scrolled Navbar Styles */
-.navbar.scrolled {
+/* Navbar Scrolled Styles */
+.navbar-container.navbar-scrolled {
     background: rgba(224, 224, 224, 0.95);
     backdrop-filter: blur(10px);
     padding: 10px 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.navbar.scrolled .logo img {
-    height: 70px;
-}
-
-.navbar.scrolled .nav-links a {
+.navbar-container.navbar-scrolled .navbar-links a {
     color: #002F6C;
     font-weight: 700;
 }
 
-.navbar.scrolled .nav-links a:hover {
+.navbar-container.navbar-scrolled .navbar-links a:hover {
     color: #FF6A00;
 }
 
-.navbar.scrolled .dropdown-menu {
+.navbar-container.navbar-scrolled .navbar-dropdown-menu {
     background: rgba(224, 224, 224, 0.95);
 }
 
-.navbar.scrolled .cta-button {
+.navbar-container.navbar-scrolled .navbar-cta-button {
     background: rgb(100, 100, 100);
     padding: 10px 15px;
     font-size: 14px;
     color: white;
 }
 
-.navbar.scrolled .cta-button:hover {
+.navbar-container.navbar-scrolled .navbar-cta-button:hover {
     background: #FF0D8A;
 }
 
-.navbar.scrolled .middle-bar {
+.navbar-container.navbar-scrolled .navbar-middle-bar {
     display: none;
 }

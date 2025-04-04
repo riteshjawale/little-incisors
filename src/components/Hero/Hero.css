@@ -1,4 +1,4 @@
-.hero-slider {
+.hero-container {
     margin-top: 3%;
     position: relative;
     width: 100%;
@@ -6,20 +6,13 @@
     overflow: hidden;
 }
 
-.slide {
-    display: none;
+.hero-image {
     width: 100%;
     height: 100%;
-    position: absolute;
-    background-size: cover;
-    background-position: center;
+    position: relative;
 }
 
-.slide.active {
-    display: block;
-}
-
-.overlay {
+.hero-overlay {
     position: absolute;
     width: max-content;
     top: 50%;
@@ -31,21 +24,21 @@
     background-color: antiquewhite;
     padding: 15px 30px;
     border-radius: 10px;
-    animation: slideText 1s forwards;
+    animation: hero-slideText 1s forwards;
 }
 
-@keyframes slideText {
+@keyframes hero-slideText {
     from { right: -100%; }
     to { right: 50%; transform: translateX(30%); }
 }
 
-.animated-shapes {
+.hero-animated-shapes {
     position: absolute;
     background: transparent;
-    animation: moveShapes 10s infinite alternate ease-in-out;
+    animation: hero-moveShapes 10s infinite alternate ease-in-out;
 }
 
-.curve1 {
+.hero-curve1 {
     width: 200px;
     height: 110px;
     border: 12px solid rgba(0, 102, 255, 0.8);
@@ -55,7 +48,7 @@
     transform: translateX(-80%);
 }
 
-.curve2 {
+.hero-curve2 {
     width: 180px;
     height: 90px;
     border: 10px solid rgba(255, 77, 77, 0.8);
@@ -64,7 +57,7 @@
     bottom: 100px; left: 10%;
 }
 
-.curve3 {
+.hero-curve3 {
     width: 140px;
     height: 70px;
     border: 8px solid rgba(255, 204, 0, 0.8);
@@ -73,7 +66,7 @@
     bottom: 25rem; right: 10%;
 }
 
-@keyframes moveShapes {
+@keyframes hero-moveShapes {
     0% {
         transform: translateX(-40px) rotate(0deg);
     }
@@ -85,51 +78,26 @@
     }
 }
 
-.dots {
-    position: relative;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    background-color: rgb(142, 11, 11);
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0.5;
-}
-
-.dot.active {
-    opacity: 1;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .hero-slider {
-        height: 400px; /* Reduce height for mobile */
+    .hero-container {
+        height: 400px;
     }
 
-    .overlay {
-        font-size: 24px; /* Smaller font size for mobile */
-        padding: 10px 20px; /* Smaller padding for mobile */
-        top: 40%; /* Adjust overlay position */
+    .hero-overlay {
+        font-size: 24px;
+        padding: 10px 20px;
+        top: 40%;
     }
 
-    .curve1, .curve2, .curve3 {
-        display: none; /* Hide shapes on mobile for simplicity */
-    }
-
-    .dots {
-        margin-top: 10px; /* Adjust dots position */
+    .hero-curve1, .hero-curve2, .hero-curve3 {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
-    .overlay {
-        font-size: 20px; /* Even smaller font size for very small screens */
+    .hero-overlay {
+        font-size: 20px;
         padding: 8px 16px;
         top: 35%;
     }

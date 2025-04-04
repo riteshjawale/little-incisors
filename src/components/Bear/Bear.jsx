@@ -14,7 +14,7 @@ const CoreValues = () => {
 
     return (
         <section className="core-values" data-aos="fade-up">
-            <h2>Core Values</h2>
+            <h2 className='values-heading'>Core Values</h2>
             <div className="values-container">
                 <div className="values-list">
                     <div className="value-item">

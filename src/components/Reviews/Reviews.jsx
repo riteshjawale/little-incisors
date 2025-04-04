@@ -1,6 +1,6 @@
 import React from 'react';
-import './Reviews.css';
-import women1 from '../../assets/women1.jpg';
+import './Reviews.css'; // Import the CSS file
+import women1 from '../../assets/women1.jpg'; // Import images
 import men2 from '../../assets/men2.jpg';
 import men3 from '../../assets/men3.jpg';
 import women2 from '../../assets/women2.jpg';
@@ -14,6 +14,8 @@ const Reviews = () => {
       <br />
       <br />
       <div className="reviews-container">
+       
+
         <div className="review">
           <div className="review-header">
             <img src={men2} alt="Siddhi Ghorpade" className="student-image" />
@@ -54,6 +56,7 @@ const Reviews = () => {
           </div>
         </div>
 
+        {/* Second Row of Reviews */}
         <div className="review">
           <div className="review-header">
             <img src={women2} alt="Afifa Bagwan" className="student-image" />
@@ -69,8 +72,8 @@ const Reviews = () => {
             </div>
           </div>
           <div className="review-message">
-            The daycare is clean, safe, and filled with so much positivity. The staff truly cares about each child's
-            well-being and development. I've seen so much growth in my son!
+            The daycare is clean, safe, and filled with so much positivity. The staff truly cares about each child’s
+            well-being and development. I’ve seen so much growth in my son!
           </div>
         </div>
 
@@ -110,7 +113,7 @@ const Reviews = () => {
           </div>
           <div className="review-message">
             This daycare is like a second home for my child. The love and care shown by the staff are heartwarming. My
-            child has learned so much, and I couldn't be happier with our choice!
+            child has learned so much, and I couldn’t be happier with our choice!
           </div>
         </div>
       </div>

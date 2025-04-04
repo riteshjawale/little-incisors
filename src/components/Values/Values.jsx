@@ -1,6 +1,6 @@
 import React from 'react';
 import './Values.css'; // Import your CSS file for styling
-import img1 from '../../../src/assets/shiavjimaharaj.jpg';
+import img1 from '../../assets/shiavjimaharaj.jpg';
 
 const Values = () => {
     return (

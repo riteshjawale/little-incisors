@@ -18,7 +18,10 @@ const About = () => {
                 </div>
                 <div className="preschool-content">
                     {/* <h3>About Preschool</h3> */}
-                    <h2>A Little Incisors Preschool Chain in Your City</h2>
+                    <h2>    <div className="logo">
+          <p className="logo-part1">LITTLE</p>
+          <p className="logo-part2">Incisors</p>
+          </div>Preschool Chain in Your City</h2>
                     <p>
                         Our curriculum is designed to ignite curiosity and nurture the delight of learning amongst little minds.
                     </p>

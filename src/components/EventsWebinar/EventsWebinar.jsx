@@ -66,13 +66,13 @@ const EventsWebinar = () => {
                                 required
                             />
                             <div className="captcha-box">
-                                <input
+                                <div><input
                                     type="checkbox"
                                     checked={formData.captcha}
                                     onChange={(e) => setFormData({...formData, captcha: e.target.checked})}
                                     required
-                                />
-                                <label>I'm not a robot</label>
+                                /></div>
+                                <div><label>I'm not a robot</label></div>
                             </div>
                             <button type="submit">Register Now</button>
                         </form>

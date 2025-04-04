@@ -1,19 +1,10 @@
 /* ParentThing.css */
 
-/* Global Styles */
-:root {
-    --primary-color: #5e2a84;
-    --secondary-color: #ff6b6b;
-    --light-purple: #f8f1ff;
-    --medium-purple: #e0c4fd;
-    --dark-text: #333;
-    --light-text: #666;
-    --white: #fff;
-}
+
 
 /* Container */
 .parent-container {
-    padding-top: 100px;
+    /* padding-top: 100px; */
     overflow-x: hidden;
     background: var(--white);
 }

@@ -3,6 +3,18 @@
   margin: 0 auto;
   text-align: center;
 }
+/* Global Styles */
+/* :root {
+  --primary-color: #5e2a84;
+  --secondary-color: #ff6b6b;
+  --light-purple: #f8f1ff;
+  --medium-purple: #e0c4fd;
+  --dark-text: #333;
+  --light-text: #666;
+  --white: #fff;
+} */
+
+
 
 .logo {
   height: 6em;
@@ -11,10 +23,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #4fbe94aa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #478596aa);
 }
 
 @keyframes logo-spin {

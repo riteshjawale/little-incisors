@@ -1,17 +1,7 @@
-/* Global Styles */
-:root {
-    --primary-color: #5e2a84;
-    --secondary-color: #ff6b6b;
-    --light-purple: #f8f1ff;
-    --medium-purple: #e0c4fd;
-    --dark-text: #333;
-    --light-text: #666;
-    --white: #fff;
-}
 
 /* Container */
 .afterschool-container {
-    padding-top: 100px;
+    /* padding-top: 100px; */
     overflow-x: hidden;
     background: var(--white);
 }
@@ -26,6 +16,18 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+}
+
+.afterschool-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(94,42,132,0.08)" d="M0,100 L100,0 L100,100 Z"></path></svg>');
+    background-size: cover;
+    z-index: 0;
 }
 
 .hero-content {

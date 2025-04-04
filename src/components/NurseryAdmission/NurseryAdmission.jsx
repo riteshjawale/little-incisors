@@ -149,12 +149,6 @@ const NurseryAdmission = () => {
                     >
                         Individualized Learning
                     </button>
-                    <button 
-                        className={activeTab === 'nanny' ? 'active' : ''}
-                        onClick={() => setActiveTab('nanny')}
-                    >
-                        Nanny at Home
-                    </button>
                 </div>
                 <div className="program-content">
                     <LazyLoadImage

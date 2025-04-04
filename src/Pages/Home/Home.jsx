@@ -10,14 +10,15 @@ import Reviews from '../../components/Reviews/Reviews'
 function Home() {
   return (
     <>
-      <Hero />
-      <Values />
+      {/* <Hero /> */}
+      <About />
+      {/* <Values /> */}
       <Schedule />
-      <CoreValues />
+      <CoreValues />    
       <Features />
       <Reviews />
     </>
   )
 }
 
-export default Home
+export default Home;

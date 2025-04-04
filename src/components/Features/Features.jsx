@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Features.css"; // Import your CSS file
-import img1 from '../../../src/assets/infastr.jpg';
-import img2 from '../../../src/assets/infaf2.jpg';
-import img3 from '../../../src/assets/infaf3.jpg';
-import img4 from '../../../src/assets/Teaching.jpg';
-import img5 from '../../../src/assets/Playing.jpg';
-import img6 from '../../../src/assets/foodn.jpg';
-import img7 from '../../../src/assets/infrastructure.jpg';
+import img1 from '../../assets/infastr.jpg';
+import img2 from '../../assets/infaf2.jpg';
+import img3 from '../../assets/infaf3.jpg';
+import img4 from '../../assets/Teaching.jpg';
+import img5 from '../../assets/Playing.jpg';
+import img6 from '../../assets/foodn.jpg';
+import img7 from '../../assets/infrastructure.jpg';
 
 
 const Features = () => {

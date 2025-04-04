@@ -1,9 +1,8 @@
 .core-values {
-  display: flex;
-  flex-direction: column;
     text-align: center;
     padding: 50px 20px;
-    background-color: #f9f9f9;
+    background-color: #85c3da ;
+    margin-top: 10%;
   }
   
   .core-values h2 {
