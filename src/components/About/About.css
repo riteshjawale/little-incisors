@@ -35,6 +35,7 @@ body {
     justify-content: center;
     /* padding: 50px 20px; */
     background: linear-gradient(to right, #ffffff, #f3f3f3);
+    height: max-content;
 }
 
 .preschool-container {

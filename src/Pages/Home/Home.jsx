@@ -10,7 +10,7 @@ import Reviews from '../../components/Reviews/Reviews'
 function Home() {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero /> 
       <About />
       {/* <Values /> */}
       <Schedule />

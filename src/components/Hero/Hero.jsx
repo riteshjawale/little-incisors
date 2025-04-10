@@ -1,12 +1,12 @@
 import React from 'react';
 import './Hero.css';
-import heroImage from '../../assets/hero2.png'; // Single image for all views
+import heroImage from '../../assets/hero1.jpg';
 
-const Hero = () => {
+const Heroz = () => {
     return (
-        <div className="hero-container">
+        <div className="heroz-container">
             <div 
-                className="hero-image"
+                className="heroz-image"
                 style={{
                     backgroundImage: `url(${heroImage})`,
                     backgroundSize: 'cover',
@@ -14,13 +14,13 @@ const Hero = () => {
                     backgroundRepeat: 'no-repeat'
                 }}
             >
-                <div className="hero-overlay">India's First Learncare Centre</div>
-                <div className="hero-animated-shapes hero-curve1"></div>
-                <div className="hero-animated-shapes hero-curve2"></div>
-                <div className="hero-animated-shapes hero-curve3"></div>
+                <div className="heroz-overlay">India's First Learncare Centre</div>
+                <div className="heroz-animated-shapes heroz-curve1"></div>
+                <div className="heroz-animated-shapes heroz-curve2"></div>
+                <div className="heroz-animated-shapes heroz-curve3"></div>
             </div>
         </div>
     );
 };
 
-export default Hero;
+export default Heroz;

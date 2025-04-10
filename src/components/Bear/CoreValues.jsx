@@ -14,7 +14,7 @@ const CoreValues = () => {
   }, []);
 
   return (
-    <section className="core-values" data-aos="fade-up">
+    <section className="core-values" data-aos="fade-up" style={"    background-color: aliceblue;"}>
       <h2>Core Values</h2>
       <div className="values-container">
         <div className="values-list">

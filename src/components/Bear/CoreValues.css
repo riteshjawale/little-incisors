@@ -1,9 +1,11 @@
 .core-values {
     text-align: center;
     padding: 50px 20px;
-    background-color: #85c3da ;
+    background-color: aliceblue;
+    
     margin-top: 10%;
-  }
+}
+
   
   .core-values h2 {
     font-size: 2.5rem;
@@ -92,6 +94,7 @@
       order: -1; /* Move the image to the top on smaller screens */
     }
   }
+ 
 
 
 
